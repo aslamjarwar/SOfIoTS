@@ -1,0 +1,173 @@
+@prefix : <http://www.localhost.org/aslam/ontologies/SOfIoTS#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.localhost.org/aslam/ontologies/SOfIoTS> .
+
+<http://www.localhost.org/aslam/ontologies/SOfIoTS> rdf:type owl:Ontology ;
+                                                     owl:versionIRI <http://www.localhost.org/aslam/ontologies/SOfIoTS/1.01> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#MitigatedBy
+:MitigatedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :Vulnerability ;
+             rdfs:range :SecurityMechanism .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#aImpacts
+:aImpacts rdf:type owl:ObjectProperty ;
+          rdfs:domain :Attack ;
+          rdfs:range :SecurityGoal .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#appliedTo
+:appliedTo rdf:type owl:ObjectProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :SecurityMechanism ;
+           rdfs:range :Asset .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#attackCapability
+:attackCapability rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Attack ;
+                  rdfs:range :capability .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#develops
+:develops rdf:type owl:ObjectProperty ;
+          rdfs:domain :Attack ;
+          rdfs:range :Fault .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#dueTo
+:dueTo rdf:type owl:ObjectProperty ;
+       rdfs:domain :Risk ;
+       rdfs:range :Attack .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#exploit
+:exploit rdf:type owl:ObjectProperty ,
+                  owl:AsymmetricProperty ;
+         rdfs:domain :Attack ;
+         rdfs:range :Vulnerability .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#fImpacts
+:fImpacts rdf:type owl:ObjectProperty ;
+          rdfs:domain :Fault ;
+          rdfs:range :SecurityGoal .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#hasRisk
+:hasRisk rdf:type owl:ObjectProperty ;
+         rdfs:domain :Asset ;
+         rdfs:range :Risk .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#implementedThrough
+:implementedThrough rdf:type owl:ObjectProperty ,
+                             owl:AsymmetricProperty ;
+                    rdfs:domain :SecurityMechanism ;
+                    rdfs:range :Asset .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#occur
+:occur rdf:type owl:ObjectProperty ;
+       rdfs:domain :Fault ;
+       rdfs:range :Asset .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#relatedTo
+:relatedTo rdf:type owl:ObjectProperty ,
+                    owl:AsymmetricProperty ;
+           rdfs:domain :Vulnerability ;
+           rdfs:range :Asset .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#riskCriticality
+:riskCriticality rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Risk ;
+                 rdfs:range :Criticality .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#secMechCapability
+:secMechCapability rdf:type owl:ObjectProperty ;
+                   rdfs:domain :SecurityMechanism ;
+                   rdfs:range :capability .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#secMechImpacts
+:secMechImpacts rdf:type owl:ObjectProperty ;
+                rdfs:domain :SecurityMechanism ;
+                rdfs:range :SecurityGoal .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#violate
+:violate rdf:type owl:ObjectProperty ,
+                  owl:AsymmetricProperty ;
+         rdfs:domain :Attack ;
+         rdfs:range :SecurityMechanism .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#vulCriticality
+:vulCriticality rdf:type owl:ObjectProperty ;
+                rdfs:domain :Vulnerability ;
+                rdfs:range :Criticality .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#vulImpacts
+:vulImpacts rdf:type owl:ObjectProperty ;
+            rdfs:domain :Vulnerability ;
+            rdfs:range :SecurityGoal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Asset
+:Asset rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Attack
+:Attack rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Criticality
+:Criticality rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Fault
+:Fault rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Risk
+:Risk rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Scope
+:Scope rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#SecurityGoal
+:SecurityGoal rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#SecurityMechanism
+:SecurityMechanism rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#Vulnerability
+:Vulnerability rdf:type owl:Class .
+
+
+###  http://www.localhost.org/aslam/ontologies/SOfIoTS#capability
+:capability rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
